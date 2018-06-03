@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище BD_StudyModelContainer" CdmEntityContainer="BD_StudyEntities">
+    <EntitySetMapping Name="Disciplines">
+      <EntityTypeMapping TypeName="BD_StudyModel.Disciplines">
+        <MappingFragment StoreEntitySet="Disciplines">
+          <ScalarProperty Name="id_discipline" ColumnName="id_discipline" />
+          <ScalarProperty Name="name_of_discipline" ColumnName="name_of_discipline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="BD_StudyModel.Groups">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="id_group" ColumnName="id_group" />
+          <ScalarProperty Name="name_of_group" ColumnName="name_of_group" />
+          <ScalarProperty Name="specialy" ColumnName="specialy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedule">
+      <EntityTypeMapping TypeName="BD_StudyModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="id_record" ColumnName="id_record" />
+          <ScalarProperty Name="id_group" ColumnName="id_group" />
+          <ScalarProperty Name="id_discipline" ColumnName="id_discipline" />
+          <ScalarProperty Name="room" ColumnName="room" />
+          <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="BD_StudyModel.Teachers">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+          <ScalarProperty Name="FIO_teacher" ColumnName="FIO_teacher" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
