@@ -7,23 +7,84 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid>
+        <Grid.BitmapEffect>
+            <BlurBitmapEffect Radius="0"/>
+        </Grid.BitmapEffect>
         <Grid.RowDefinitions>
-            <RowDefinition Height="86*"/>
-            <RowDefinition Height="333*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="86*"/>
+                <RowDefinition Height="333*"/>
         </Grid.RowDefinitions>
-        <WrapPanel Orientation="Vertical" Grid.Row="0" HorizontalAlignment="Center" Margin="20,20" Width="152">
-            <WrapPanel>
+            <Menu>
+                <MenuItem Name="singIn" Header="Войти как студент" Click="singIn_Click"/>
+            </Menu>
+            <Grid Grid.Row="1" Margin="20,20"  HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
                 <TextBlock Text="Поиск:"/>
                 <ComboBox Name="search" IsEnabled="True" Width="100" IsEditable="True" SelectionChanged="search_SelectionChanged">
                 </ComboBox>
             </WrapPanel>
-            <WrapPanel>
+            <WrapPanel Grid.Row="1">
                 <TextBlock Text="Расписание группы: " FontSize="16" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="tbName" Text="имя" FontSize="16"/>
             </WrapPanel>
-        </WrapPanel>
-        <WrapPanel Name="Schedule" Grid.Row="1">
-            
-        </WrapPanel>
-        
+        </Grid>
+            <WrapPanel Name="Schedule" Grid.Row="2">
+
+            </WrapPanel>
+        </Grid>
+        <Border Name="EditAndAddElement" Margin="0,20" Visibility="Hidden" Background="red"  Width="300" CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="WrapPanel">
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Padding" Value="0,0,10,0"/>
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Height" Value="25"/>
+                    </Style>
+                </Grid.Resources>
+                <TextBlock Text="Редактировать" Grid.Row="0" HorizontalAlignment="Center"/>
+                <WrapPanel Orientation="Vertical" Grid.Row="1">
+                <WrapPanel>
+                    <TextBlock Name="test" Text="Предмет" VerticalAlignment="Center"/>
+                        <ComboBox Name="cbNameSubject" Width="100"></ComboBox>
+                </WrapPanel>
+                <WrapPanel >
+                    <TextBlock Text="Преподователь" VerticalAlignment="Center"/>
+                    <ComboBox Name="cbTeacher" Width="100"></ComboBox>
+                </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Аудитория" VerticalAlignment="Center"/>
+                        <TextBox Name="tbRoom" Width="100"></TextBox>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Время начала" VerticalAlignment="Center"/>
+                        <TextBox Name="tbStartHours" Width="30"/>
+                        <TextBlock Text=":" VerticalAlignment="Center" Margin="5,0" Width="4"/>
+                        <TextBox Name="tbStartMinutes" Width="30"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Конец" VerticalAlignment="Center" Padding="0,0,10,0"/>
+                        <TextBox Name="tbEndHours" Width="30"/>
+                        <TextBlock Text=":" VerticalAlignment="Center" Margin="5,0" Width="5"/>
+                        <TextBox Name="tbEndMinutes" Width="30"/>
+                    </WrapPanel>
+                    <Button Name="btAccept" Content="Принять" Height="30" Width="286" Click="btAccept_Click"/>
+                </WrapPanel>
+            </Grid>
+        </Border>
     </Grid>
+   
 </Window>
